@@ -1,0 +1,1101 @@
+{
+  "schema": "sqlite-pragma-lab/report-v1",
+  "status": "review",
+  "engine": {
+    "name": "SQLite",
+    "version": "3.53.1",
+    "foreign_keys_supported": true
+  },
+  "inputs": {
+    "schema_statements": 2,
+    "seed_statements": 2,
+    "migration_statements": 6
+  },
+  "scope": [
+    "Only explicitly supplied SQL runs in isolated memory databases.",
+    "Counts describe rows, not content equality or runtime compatibility.",
+    "No SQL bodies, row values, input paths, production connections, or ORM runtime emulation are included."
+  ],
+  "profiles": [
+    {
+      "name": "autocommit",
+      "status": "pass",
+      "sql_completed": true,
+      "completion": "autocommit",
+      "initial": {
+        "foreign_keys": true,
+        "in_transaction": false,
+        "tables": [
+          {
+            "name": "files",
+            "rows": 2
+          },
+          {
+            "name": "folders",
+            "rows": 1
+          }
+        ],
+        "foreign_key_edges": [
+          {
+            "table": "files",
+            "id": 0,
+            "seq": 0,
+            "parent": "folders",
+            "from": "folder_id",
+            "to": "id",
+            "on_update": "NO ACTION",
+            "on_delete": "CASCADE"
+          }
+        ],
+        "foreign_key_violations": [],
+        "integrity_ok": true
+      },
+      "steps": [
+        {
+          "index": 1,
+          "line": 2,
+          "kind": "PRAGMA",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": true,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [],
+          "findings": []
+        },
+        {
+          "index": 2,
+          "line": 3,
+          "kind": "CREATE TABLE",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              },
+              {
+                "name": "new_folders",
+                "rows": 0
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [
+            {
+              "table": "new_folders",
+              "before": null,
+              "after": 0,
+              "delta": null,
+              "kind": "added"
+            }
+          ],
+          "findings": []
+        },
+        {
+          "index": 3,
+          "line": 4,
+          "kind": "INSERT",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              },
+              {
+                "name": "new_folders",
+                "rows": 0
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              },
+              {
+                "name": "new_folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [
+            {
+              "table": "new_folders",
+              "before": 0,
+              "after": 1,
+              "delta": 1,
+              "kind": "increased"
+            }
+          ],
+          "findings": []
+        },
+        {
+          "index": 4,
+          "line": 6,
+          "kind": "DROP TABLE",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              },
+              {
+                "name": "new_folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "new_folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [
+              {
+                "table": "files",
+                "parent": "folders",
+                "id": 0,
+                "count": 2
+              }
+            ],
+            "integrity_ok": true
+          },
+          "changes": [
+            {
+              "table": "folders",
+              "before": 1,
+              "after": null,
+              "delta": null,
+              "kind": "removed"
+            }
+          ],
+          "findings": []
+        },
+        {
+          "index": 5,
+          "line": 7,
+          "kind": "ALTER TABLE",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "new_folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [
+              {
+                "table": "files",
+                "parent": "folders",
+                "id": 0,
+                "count": 2
+              }
+            ],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [
+            {
+              "table": "folders",
+              "before": null,
+              "after": 1,
+              "delta": null,
+              "kind": "added"
+            },
+            {
+              "table": "new_folders",
+              "before": 1,
+              "after": null,
+              "delta": null,
+              "kind": "removed"
+            }
+          ],
+          "findings": []
+        },
+        {
+          "index": 6,
+          "line": 8,
+          "kind": "PRAGMA",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": false,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": true,
+            "in_transaction": false,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [],
+          "findings": []
+        }
+      ],
+      "findings": [],
+      "finalization": {
+        "action": "none",
+        "outcome": "ok",
+        "error_code": null
+      },
+      "final": {
+        "foreign_keys": true,
+        "in_transaction": false,
+        "tables": [
+          {
+            "name": "files",
+            "rows": 2
+          },
+          {
+            "name": "folders",
+            "rows": 1
+          }
+        ],
+        "foreign_key_edges": [
+          {
+            "table": "files",
+            "id": 0,
+            "seq": 0,
+            "parent": "folders",
+            "from": "folder_id",
+            "to": "id",
+            "on_update": "NO ACTION",
+            "on_delete": "CASCADE"
+          }
+        ],
+        "foreign_key_violations": [],
+        "integrity_ok": true
+      },
+      "final_changes": []
+    },
+    {
+      "name": "outer_transaction",
+      "status": "review",
+      "sql_completed": true,
+      "completion": "committed",
+      "initial": {
+        "foreign_keys": true,
+        "in_transaction": true,
+        "tables": [
+          {
+            "name": "files",
+            "rows": 2
+          },
+          {
+            "name": "folders",
+            "rows": 1
+          }
+        ],
+        "foreign_key_edges": [
+          {
+            "table": "files",
+            "id": 0,
+            "seq": 0,
+            "parent": "folders",
+            "from": "folder_id",
+            "to": "id",
+            "on_update": "NO ACTION",
+            "on_delete": "CASCADE"
+          }
+        ],
+        "foreign_key_violations": [],
+        "integrity_ok": true
+      },
+      "steps": [
+        {
+          "index": 1,
+          "line": 2,
+          "kind": "PRAGMA",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [],
+          "findings": [
+            {
+              "code": "FOREIGN_KEYS_TOGGLE_IGNORED",
+              "severity": "warning",
+              "message": "Foreign-key setting did not change inside an active transaction."
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "line": 3,
+          "kind": "CREATE TABLE",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              },
+              {
+                "name": "new_folders",
+                "rows": 0
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [
+            {
+              "table": "new_folders",
+              "before": null,
+              "after": 0,
+              "delta": null,
+              "kind": "added"
+            }
+          ],
+          "findings": []
+        },
+        {
+          "index": 3,
+          "line": 4,
+          "kind": "INSERT",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              },
+              {
+                "name": "new_folders",
+                "rows": 0
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              },
+              {
+                "name": "new_folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [
+            {
+              "table": "new_folders",
+              "before": 0,
+              "after": 1,
+              "delta": 1,
+              "kind": "increased"
+            }
+          ],
+          "findings": []
+        },
+        {
+          "index": 4,
+          "line": 6,
+          "kind": "DROP TABLE",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 2
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              },
+              {
+                "name": "new_folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 0
+              },
+              {
+                "name": "new_folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [
+            {
+              "table": "files",
+              "before": 2,
+              "after": 0,
+              "delta": -2,
+              "kind": "decreased"
+            },
+            {
+              "table": "folders",
+              "before": 1,
+              "after": null,
+              "delta": null,
+              "kind": "removed"
+            }
+          ],
+          "findings": [
+            {
+              "code": "ROWS_DECREASED",
+              "severity": "warning",
+              "message": "A table present before and after this statement has fewer rows; later rollback or statements may restore them."
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "line": 7,
+          "kind": "ALTER TABLE",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 0
+              },
+              {
+                "name": "new_folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 0
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [
+            {
+              "table": "folders",
+              "before": null,
+              "after": 1,
+              "delta": null,
+              "kind": "added"
+            },
+            {
+              "table": "new_folders",
+              "before": 1,
+              "after": null,
+              "delta": null,
+              "kind": "removed"
+            }
+          ],
+          "findings": []
+        },
+        {
+          "index": 6,
+          "line": 8,
+          "kind": "PRAGMA",
+          "outcome": "ok",
+          "error_code": null,
+          "before": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 0
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "after": {
+            "foreign_keys": true,
+            "in_transaction": true,
+            "tables": [
+              {
+                "name": "files",
+                "rows": 0
+              },
+              {
+                "name": "folders",
+                "rows": 1
+              }
+            ],
+            "foreign_key_edges": [
+              {
+                "table": "files",
+                "id": 0,
+                "seq": 0,
+                "parent": "folders",
+                "from": "folder_id",
+                "to": "id",
+                "on_update": "NO ACTION",
+                "on_delete": "CASCADE"
+              }
+            ],
+            "foreign_key_violations": [],
+            "integrity_ok": true
+          },
+          "changes": [],
+          "findings": []
+        }
+      ],
+      "findings": [
+        {
+          "code": "FINAL_ROW_DECREASE",
+          "severity": "warning",
+          "message": "Final table row counts decreased from the baseline; intentional deletions also require review."
+        }
+      ],
+      "finalization": {
+        "action": "commit",
+        "outcome": "ok",
+        "error_code": null
+      },
+      "final": {
+        "foreign_keys": true,
+        "in_transaction": false,
+        "tables": [
+          {
+            "name": "files",
+            "rows": 0
+          },
+          {
+            "name": "folders",
+            "rows": 1
+          }
+        ],
+        "foreign_key_edges": [
+          {
+            "table": "files",
+            "id": 0,
+            "seq": 0,
+            "parent": "folders",
+            "from": "folder_id",
+            "to": "id",
+            "on_update": "NO ACTION",
+            "on_delete": "CASCADE"
+          }
+        ],
+        "foreign_key_violations": [],
+        "integrity_ok": true
+      },
+      "final_changes": [
+        {
+          "table": "files",
+          "before": 2,
+          "after": 0,
+          "delta": -2,
+          "kind": "decreased"
+        }
+      ]
+    }
+  ],
+  "demo": true
+}

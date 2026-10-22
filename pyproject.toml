@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sqlite-pragma-lab"
+version = "0.1.0"
+description = "Explain SQLite migration behavior under different transaction wrappers"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = []
+keywords = ["sqlite", "migrations", "foreign-keys", "developer-tools"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.14",
+  "Operating System :: OS Independent",
+]
+
+[project.scripts]
+sqlite-pragma-lab = "sqlite_pragma_lab.cli:main"
+
+[project.urls]
+Repository = "https://github.com/7364588/sqlite-pragma-lab"
+Issues = "https://github.com/7364588/sqlite-pragma-lab/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+sqlite_pragma_lab = ["report.html"]

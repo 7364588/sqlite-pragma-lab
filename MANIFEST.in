@@ -1,0 +1,5 @@
+include README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md MAINTENANCE.md LICENSE
+recursive-include src/sqlite_pragma_lab *.html
+recursive-include examples *.sql
+recursive-include tests *.py
+recursive-include scripts *.py
